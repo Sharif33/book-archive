@@ -2,14 +2,25 @@
 //result finding button
 const foundResult = document.getElementById('found-result');
 
+//spinner id
+const toggleSpinner = displayStyle => {
+  document.getElementById('spinner').style.display = displayStyle;
+}
+const toggleSearchResult = displayStyle => {
+  document.getElementById('found-result').style.display = displayStyle;
+}
+
 //search field
 const searchBook = () => {
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
   if (searchText === "") {
-    foundResult.innerText = 'Search field can not be empty';
+    foundResult.innerText = '*Search field can not be empty';
     return;
   };
+  // display spinner
+  toggleSpinner('block');
+  toggleSearchResult('none');
 
   // clear data
   searchField.value = '';
@@ -40,7 +51,7 @@ const displaySearchResult = books => {
     div.innerHTML =
       `
         <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0 ">
+  <div class="row g-0 shadow">
     <div class="col-md-4">
       <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : ''}-M.jpg" class="img-fluid rounded-start" style="height: 15rem;" alt="...">
     </div>
@@ -58,4 +69,6 @@ const displaySearchResult = books => {
         `
     searchResult.appendChild(div);
   });
+  toggleSpinner('none');
+  toggleSearchResult('block');
 };
