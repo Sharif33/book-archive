@@ -13,16 +13,15 @@
 
 <body>
     <section class="">
-        <h2 class="text-center text-success">Search your Book</h2>
+        <h2 class="text-center text-success mt-4 mb-3">Search your Favorite Book</h2>
         <!-- book search area -->
         <div class="input-group mb-3 w-50 mx-auto">
-            <input id="search-field" type="text" class="form-control" placeholder="Search the Book by name"
+            <input id="search-field" type="text" class="form-control" placeholder="Enter a book name"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button onclick="searchBook()" class="btn btn-outline-secondary" type="button"
-                id="button-search">search</button>
+            <button onclick="searchBook()" class="btn btn-outline-dark" type="button" id="button-search">Search</button>
         </div>
         <!-- how many result found -->
-        <div id="found-result" class="text-center">
+        <div id="found-result" class="text-center text-danger my-2 fs-5">
         </div>
         <!-- book search result -->
         <div id="search-result" class="row row-cols-md-3 g-4 mx-auto">
